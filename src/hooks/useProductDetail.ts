@@ -11,7 +11,7 @@ export const useProductDetail = (id: string) => {
   });
 
   const handleIncrement = () => {
-    if (query.data && quantity < query.data.stockproduct)
+    if (query.data && quantity < query.data.stokproduct)
       setQuantity((prev) => prev + 1);
   };
 

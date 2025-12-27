@@ -2,7 +2,31 @@ import { userService } from "@/services/userService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
+import { toast } from "sonner";
 
+export const useRegister = () => {
+  const router = useRouter();
+
+  const mutation = useMutation({
+    mutationFn: userService.register,
+    onSuccess: () => {
+      toast.success("Registrasi berhasil! Silahkan login.");
+      router.push("/login");
+    },
+    onError: (error: any) => {
+      toast.error(error.message);
+    },
+  });
+
+  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const payload = Object.fromEntries(formData);
+    mutation.mutate(payload);
+  };
+
+  return { handleRegister, mutation };
+};
 export const useLogin = () => {
   const router = useRouter();
 

@@ -1,6 +1,19 @@
 const BASEURL = "https://be-ecommerce-navy.vercel.app/api/v1";
 
 export const userService = {
+  register: async (formData: any) => {
+    const response = await fetch(`${BASEURL}/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+      credentials: "include",
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.message || "Gagal registrasi");
+    }
+    return data.data;
+  },
   login: async (formData: any) => {
     const response = await fetch(`${BASEURL}/auth/login`, {
       method: "POST",

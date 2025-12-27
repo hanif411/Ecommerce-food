@@ -20,7 +20,7 @@ function Navbar() {
               Premium Bakery & Cakes
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex items-center gap-3">
             <div className="relative p-1">
               <CartDrawer cartItems={items} />
               {items.length > 0 && (

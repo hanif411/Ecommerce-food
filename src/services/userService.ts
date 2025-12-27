@@ -1,4 +1,4 @@
-const BASEURL = "http://localhost:3000/api/v1";
+const BASEURL = "https://be-ecommerce-navy.vercel.app/api/v1";
 
 export const userService = {
   login: async (formData: any) => {

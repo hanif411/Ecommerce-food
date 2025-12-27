@@ -26,7 +26,7 @@ export function OrderHeader({
       <div>
         <h2 className="text-2xl font-bold tracking-tight">Order List</h2>
         <p className="text-muted-foreground">
-          Monitor all your transactions and the delivery status{" "}
+          Monitor all your transactions and the delivery status
         </p>
       </div>
 

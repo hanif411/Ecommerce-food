@@ -5,7 +5,6 @@ import { Order } from "@/types/order";
 import { formatPrice } from "@/utils/formatPrice";
 import { formatDate } from "@/utils/formatDate";
 import { formatPaymentStatus } from "@/utils/formatPaymentStatus";
-import { formatOrderStatus } from "@/utils/formatOrderStatus";
 import { User, Calendar } from "lucide-react";
 import { OrderStatusAction } from "./OrderStatusAction";
 
@@ -14,8 +13,6 @@ export function OrderMobileCard({ order }: { order: Order }) {
     order.paymentStatus
   );
   const { paymentDate, paymentHour } = formatDate(order.createdAt);
-  const { textOrder, classNameOrder } = formatOrderStatus(order.orderStatus);
-
   return (
     <Card>
       <CardHeader>

@@ -1,6 +1,6 @@
 import { Product } from "@/types/product";
 
-const BASEURL = "http://localhost:3000/api/v1";
+const BASEURL = "https://be-ecommerce-navy.vercel.app/api/v1";
 
 export const productServices = {
   getAll: async () => {
@@ -28,6 +28,7 @@ export const productServices = {
     const response = await fetch(`${BASEURL}/product`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify(payload),
     });
     if (!response.ok) throw new Error("Gagal tambah produk");
@@ -35,14 +36,15 @@ export const productServices = {
   },
   uploadImage: async (file: File) => {
     const formData = new FormData();
-    formData.append("image", file); 
+    formData.append("image", file);
     const response = await fetch(`${BASEURL}/product/file-upload`, {
       method: "POST",
+      credentials: "include",
       body: formData,
     });
 
     if (!response.ok) throw new Error("Gagal upload gambar");
     const result = await response.json();
-    return result.secure_url; 
+    return result.message.secure_url;
   },
 };

@@ -28,7 +28,7 @@ export default function ProductPage() {
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Catalog Product</h2>
           <p className="text-muted-foreground">
-            Kelola stok, harga, dan informasi bolu.
+            Manage your product
           </p>
         </div>
         <EditProductSheet />

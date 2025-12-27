@@ -40,6 +40,8 @@ export function ProductForm({ product, onSuccess }: ProductFormProps) {
     try {
       setIsUploading(true);
       const uploadedUrl = await productServices.uploadImage(file);
+      console.log(uploadedUrl);
+
       setImageUrl(uploadedUrl);
       toast.success("Gambar berhasil diupload!");
     } catch (error) {
@@ -59,6 +61,8 @@ export function ProductForm({ product, onSuccess }: ProductFormProps) {
       stokproduct: Number(rawData.stokproduct),
       imageproduct: imageUrl,
     };
+    console.log(payload);
+
     mutation.mutate(payload);
   };
   return (

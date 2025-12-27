@@ -1,4 +1,5 @@
 "use client";
+import OrderEmpty from "@/components/order/OrderEmpty";
 import OrderError from "@/components/order/OrderError";
 import OrderLoading from "@/components/order/OrderLoading";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,9 @@ function OrderPage() {
 
   if (isLoading) return <OrderLoading />;
   if (isError) return <OrderError refetch={refetch} />;
+  if (!orderItems || orderItems.length === 0) {
+    return <OrderEmpty />;
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 max-w-6xl mx-auto gap-4 pt-5 px-4">

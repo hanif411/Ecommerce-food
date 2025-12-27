@@ -11,9 +11,6 @@ function OrderError({ refetch }: { refetch: () => void }) {
       <h3 className="text-xl font-bold text-gray-900">
         Gagal Ambil Riwayat Order
       </h3>
-      <p className="text-gray-500 mb-6 max-w-xs">
-        Sepertinya ada gangguan koneksi. Coba refresh halaman ini ya bro.
-      </p>
       <Button
         onClick={() => refetch()}
         className="bg-[#e95322] hover:bg-[#d14719]">

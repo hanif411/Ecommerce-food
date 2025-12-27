@@ -60,9 +60,6 @@ function LoginPage() {
               disabled={mutation.isPending}>
               {mutation.isPending ? "Login..." : "Login"}
             </Button>
-            <Button variant="outline" className="w-full">
-              Login with Google
-            </Button>
           </CardFooter>
         </form>
       </Card>

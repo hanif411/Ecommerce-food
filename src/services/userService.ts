@@ -15,7 +15,11 @@ export const userService = {
     return data.data;
   },
   logout: async () => {
-    const response = await fetch(`${BASEURL}/auth/logout`);
+    const response = await fetch(`${BASEURL}/auth/logout`, {
+      method: "GET",
+      credentials: "include",
+      cache: "no-store",
+    });
     const data = await response.json();
     if (!response.ok) {
       throw new Error("gagal login");

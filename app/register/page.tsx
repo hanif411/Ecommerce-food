@@ -35,7 +35,7 @@ function RegisterPage() {
               <Input
                 id="name"
                 name="name"
-                placeholder="Hanif Sholihin"
+                placeholder="Your name"
                 required
                 className="bg-muted/50"
               />
@@ -63,7 +63,7 @@ function RegisterPage() {
               />
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-4">
+          <CardFooter className="flex flex-col gap-4 mt-2">
             <Button
               className="w-full text-lg h-11"
               disabled={mutation.isPending}>

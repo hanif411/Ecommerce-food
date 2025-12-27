@@ -1,5 +1,5 @@
 import { userService } from "@/services/userService";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
@@ -8,8 +8,13 @@ export const useLogin = () => {
 
   const mutation = useMutation({
     mutationFn: userService.login,
-    onSuccess: () => {
-      router.push("/");
+    onSuccess: (userData: any) => {
+      if (userData.role === "admin" || userData.role === "owner") {
+        router.push("/admin/product");
+      } else {
+        router.push("/");
+      }
+      router.refresh();
     },
   });
 

@@ -22,4 +22,15 @@ export const userService = {
     }
     return data;
   },
+  getUser: async () => {
+    const response = await fetch(`${BASEURL}/auth/getuser`, {
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error("gagal get user");
+    }
+    return data.data;
+  },
 };

@@ -16,6 +16,9 @@ export interface Order {
   lastName: string;
   phone: string;
   email: string;
-  status: "pending" | "success" | "failed";
+  paymentStatus: "pending" | "success" | "failed";
+  orderStatus: "unprocessed" | "processing" | "completed" | "cancelled";
+  createdAt: string;
+  updatedAt: string;
   __v: number;
 }

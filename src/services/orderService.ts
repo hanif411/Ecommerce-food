@@ -37,4 +37,24 @@ export const orderService = {
     const data = await response.json();
     return data.data;
   },
+  getAllOrder: async () => {
+    const response = await fetch(`${BASEURL}/order`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    const data = await response.json();
+    return data.data;
+  },
+  updateStatus: async (id: string, orderStatus: string) => {
+    const response = await fetch(`${BASEURL}/order/status/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ orderStatus }),
+    });
+    if (!response.ok) throw new Error("Gagal update status");
+    return response.json();
+  },
 };

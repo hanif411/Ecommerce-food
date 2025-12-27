@@ -2,7 +2,6 @@
 import { ProductCard } from "@/components/product/ProductCard";
 import ProductError from "@/components/product/ProductError";
 import ProductLoading from "@/components/product/ProductLoading";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useProductData } from "@/hooks/useProductData";
 import { useCartStore } from "@/store/useCartStore";
 import { useRouter } from "next/navigation";

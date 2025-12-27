@@ -20,11 +20,13 @@ import { useLogout } from "@/hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { userService } from "@/services/userService";
 import { Separator } from "../ui/separator";
+import { useState } from "react";
 
 function MenuNavbar() {
   const router = useRouter();
   const pathname = usePathname();
   const { handleLogout, isLoading: isLoggingOut } = useLogout();
+  const [open, setOpen] = useState(false);
 
   const { data: user } = useQuery({
     queryKey: ["profile"],
@@ -37,7 +39,6 @@ function MenuNavbar() {
     { id: "/order", label: "My Orders", icon: ClipboardList },
   ];
 
-  // Tambahkan menu Admin/Owner jika role sesuai
   if (user?.role === "admin" || user?.role === "owner") {
     menuItems.push({
       id: "/admin/product",
@@ -46,8 +47,13 @@ function MenuNavbar() {
     });
   }
 
+  const onLogoutClick = async () => {
+    setOpen(false);
+    handleLogout();
+  };
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="">
         <Menu />
       </SheetTrigger>
@@ -70,7 +76,6 @@ function MenuNavbar() {
 
         <Separator />
 
-        {/* Navigasi Menu Utama */}
         <nav className="flex flex-col gap-2 p-4 flex-1">
           {menuItems.map((item) => {
             const isActive = pathname === item.id;
@@ -93,13 +98,12 @@ function MenuNavbar() {
           })}
         </nav>
 
-        {/* Footer Logout */}
         <div className="p-4 mt-auto">
           <Separator className="mb-4" />
           <Button
             variant="ghost"
             disabled={isLoggingOut}
-            onClick={handleLogout}
+            onClick={onLogoutClick}
             className="w-full justify-start text-destructive hover:bg-destructive/10 hover:text-destructive gap-4 h-11">
             <LogOut className="h-5 w-5" />
             <span className="font-bold">Log Out</span>

@@ -62,16 +62,6 @@ function RegisterPage() {
                 className="bg-muted/50"
               />
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="role">Daftar Sebagai</Label>
-              <select
-                name="role"
-                id="role"
-                className="flex h-10 w-full rounded-md border border-input bg-muted/50 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                <option value="user">Pembeli (User)</option>
-                <option value="owner">Pemilik Toko (Owner)</option>
-              </select>
-            </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button

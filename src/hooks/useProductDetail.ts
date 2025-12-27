@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 export const useProductDetail = (id: string) => {
-  const [quantity, setQuantity] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(1);
   const query = useQuery({
     queryKey: ["product", id],
     queryFn: () => productServices.getById(id),
@@ -11,7 +11,8 @@ export const useProductDetail = (id: string) => {
   });
 
   const handleIncrement = () => {
-    if (quantity < query.data.stockproduct) setQuantity((prev) => prev + 1);
+    if (query.data && quantity < query.data.stockproduct)
+      setQuantity((prev) => prev + 1);
   };
 
   const handleDecrement = () => {

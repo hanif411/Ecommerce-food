@@ -2,9 +2,6 @@
 import { formatPrice } from "@/utils/formatPrice";
 import { ChevronLeft, Heart, ShoppingCart, Star } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { productServices } from "@/services/productService";
 import { useCartStore } from "@/store/useCartStore";
 import ProductDetailLoading from "@/components/product/ProductDetailLoading";
 import { useProductDetail } from "@/hooks/useProductDetail";

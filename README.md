@@ -1,6 +1,6 @@
 # 🎂 Bolu Delight - Premium Cake E-commerce
 
-[![Vercel Deployed](https://img.shields.io/badge/vercel)](https://ecommerce-food-sigma.vercel.app/)
+[![Vercel Deployed](https://img.shields.io/badge/Vercel-Deployed-success)](https://ecommerce-food-sigma.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-blue?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![TanStack Query](https://img.shields.io/badge/TanStack_Query-5-ff4154?style=for-the-badge&logo=react-query)](https://tanstack.com/)
